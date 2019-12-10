@@ -1,4 +1,4 @@
-/entrypoint.sh
+/init/entrypoint.sh
 /docker
 /.bundle
 /log/*
@@ -12,5 +12,3 @@
 /public/assets
 .byebug_history
 /config/master.key
-
-
