@@ -1,5 +1,4 @@
 /init/entrypoint.sh
-/docker
 /.bundle
 /log/*
 /tmp/*
@@ -12,3 +11,4 @@
 /public/assets
 .byebug_history
 /config/master.key
+/postgresql-data
