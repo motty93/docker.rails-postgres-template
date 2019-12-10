@@ -12,3 +12,4 @@
 .byebug_history
 /config/master.key
 /postgresql-data
+/vendor/bundle
