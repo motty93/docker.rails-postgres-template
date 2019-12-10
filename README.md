@@ -1,7 +1,5 @@
-# Application setting.
-## docker-compose.yml setting.
-
-Please set your environment for docker containers.
+# Setting
+## .env
 
 create `.env`. Or hard cording, but it don't recommended.
 
@@ -14,9 +12,11 @@ $ mkdir initdb; touch setup.sql
 
 Rewrite your role and password, database to `initdb/setup.sql`.
 
-## config/database.yml
+## rails new
 
-Please change your **development** and **test** database name.
+```
+$ docker-compose run web rails new . --database=postgresql -B -M --skip-yarn --skip-test --skip-turbolinks
+```
 
 ## docker-compose build and bundle install, docker-compose up.
 
