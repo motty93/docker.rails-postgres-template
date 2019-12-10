@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker-compose run web rails new . --force --database=postgresql -B --skip-yarn --skip-test --skip-turbolinks
+docker-compose run web rails new . --force --database=postgresql --skip-bundle --skip-test --skip-turbolinks
 
 echo "Linux用権限付与"
 sudo chown -R $USER:$USER *
