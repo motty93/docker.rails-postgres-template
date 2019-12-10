@@ -7,17 +7,23 @@ RUN apt-get update -qq && apt-get install -y \
     libpq-dev \
     postgresql-client \
     nodejs \
+    gosu \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* /tmp/* /var/tmp/*
+
+# Linux authority setting
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
 RUN gem install rails bundler
 
 WORKDIR /tmp
 
 COPY Gemfile* /tmp
-RUN bundle install --clean --path=vendor/bundle
+RUN bundle install --clean --path=vendor/bundle \
+    && mkdir ${APP_ROOT}
 
-RUN mkdir ${APP_ROOT}
 WORKDIR ${APP_ROOT}
-
 ADD . ${APP_ROOT}/
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
