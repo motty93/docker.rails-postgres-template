@@ -1,13 +1,13 @@
 FROM ruby:2.6.3
 ENV LANG C.UTF-8
 ENV APP_ROOT /myapp
+ENV DEBCONF_NOWARNINGS yes
 
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
     postgresql-client \
     nodejs \
-    gosu \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* /tmp/* /var/tmp/*
 
 # Linux authority setting
