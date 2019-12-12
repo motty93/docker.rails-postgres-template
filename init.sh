@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker-compose run web rails _ 5.2_ new . -s --database=postgresql \
+docker-compose run web rails _5.2_ new . -s --database=postgresql \
   --skip-git --skip-bundle --skip-turbolinks --skip-coffee --skip-test
 
 if [ "$(uname)" == 'Linux' ]; then
