@@ -1,37 +1,18 @@
-# Setting
-## .env
+# Rails in Docker with PostgreSQL
 
-create `.env`. Or hard cording, but it don't recommended.
+## Versions
 
-## PostgreSQL setting.
-**※ Please be sure to set.**
+* Docker version 17.12.0-ce, build c97c6d6
+* docker-compose version 1.20.1, build 5d8c71b
+* Ruby 2.6.3
+* Rails 5.2.4
 
-```
-$ mkdir initdb; touch setup.sql
-```
+**※Please make sure to match the docker and docker-compose version.**
 
-Rewrite your role and password, database to `initdb/setup.sql`.
-
-## rails new
+## Usage
 
 ```
-$ docker-compose run web rails new . --database=postgresql -B -M --skip-yarn --skip-test --skip-turbolinks
-```
+$ sudo chmod 755 init.sh
 
-## docker-compose build and bundle install, docker-compose up.
-
-```
-$ docker-compose build
-
-$ docker-compose run web bundle install --path=vendor/bundle
-
-$ docker-compose up
-```
-
-## db create and migrate
-
-```
-$ docker-compose run web rails db:create
-
-$ docker-compose run web rails db:migrate
+$ ./init.sh
 ```
