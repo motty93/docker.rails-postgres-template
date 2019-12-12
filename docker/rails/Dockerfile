@@ -15,7 +15,8 @@ RUN apt-get update -qq && apt-get install -y \
 # RUN chmod +x /usr/local/bin/entrypoint.sh
 # ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
-RUN gem install rails bundler
+RUN gem install -v 5.2.4 rails \
+  && gem install bundler
 
 WORKDIR /tmp
 
