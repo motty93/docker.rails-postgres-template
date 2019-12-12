@@ -1,15 +1,25 @@
 #!/bin/bash
 
-docker-compose run web rails new . --force --database=postgresql --skip-bundle --skip-test --skip-turbolinks
+docker-compose run web rails _ 5.2_ new . -s --database=postgresql \
+  --skip-git --skip-bundle --skip-turbolinks --skip-coffee --skip-test
 
-echo "Linux用権限付与"
-sudo chown -R $USER:$USER *
+if [ "$(uname)" == 'Linux' ]; then
+  echo "Linux用権限付与"
+  sudo chown -R $USER:$USER *
+fi
 
 echo "force files checkout"
-git checkout Gemfile README.md .gitignore
+git checkout README.md .gitignore
 
 echo "application build"
 docker-compose build
+
+if [ "$(uname)" == 'Linux' ]; then
+  echo "Linux用権限付与"
+  sudo chown -R $USER:$USER *
+fi
+
+echo "bundle install & db setting"
 docker-compose run web bundle install --path=vendor/bundle
 docker-compose run web rails db:create
 docker-compose run web rails db:migrate
