@@ -13,3 +13,4 @@
 /config/master.key
 /postgresql-data
 /vendor/bundle
+.env
