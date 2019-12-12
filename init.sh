@@ -34,4 +34,4 @@ docker-compose run web rails db:create
 docker-compose run web rails db:migrate
 
 echo "fig up"
-docker-compose up -d
+docker-compose up
