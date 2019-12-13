@@ -36,5 +36,12 @@ docker-compose run web rails db:migrate
 # echo "container all delete"
 # docker rm -f `docker ps -a -q`
 
-echo "fig up"
-docker-compose up
+echo "fig up deamon"
+docker-compose up -d
+
+echo "browser open"
+if [ "$(uname)" == 'Darwin' ]; then
+  open "http://0.0.0.0:3000"
+else
+  xdg-open "http://0.0.0.0:3000"
+fi
