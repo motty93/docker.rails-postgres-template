@@ -24,10 +24,10 @@ echo "bundle install"
 docker-compose run web bundle install --path=vendor/bundle
 
 echo "copy env setting"
-cp ./init/env_sample ./.env
+cp ./docker/init/env_sample ./.env
 
 echo "copy database.yml"
-\cp -f ./init/init_database.yml ./config/database.yml
+\cp -f ./docker/init/init_database.yml ./config/database.yml
 
 echo "db create & migrate"
 docker-compose run web rails db:create
