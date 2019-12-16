@@ -16,7 +16,7 @@ RUN gem install -v 5.2.4 rails \
 WORKDIR /tmp
 
 COPY Gemfile* /tmp/
-RUN bundle install --clean --path=vendor/bundle \
+RUN bundle install --clean \
     && mkdir ${APP_ROOT}
 
 WORKDIR ${APP_ROOT}
