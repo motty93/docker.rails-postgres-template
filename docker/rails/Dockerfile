@@ -10,11 +10,6 @@ RUN apt-get update -qq && apt-get install -y \
     nodejs \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* /tmp/* /var/tmp/*
 
-# Linux authority setting
-# COPY ./init/entrypoint.sh /usr/local/bin/entrypoint.sh
-# RUN chmod +x /usr/local/bin/entrypoint.sh
-# ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-
 RUN gem install -v 5.2.4 rails \
   && gem install bundler
 
