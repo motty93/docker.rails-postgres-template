@@ -4,7 +4,7 @@ services:
     image: postgres:10-alpine
     volumes:
       - postgresql-data:/var/lib/postgresql/data
-      - ./init/db:/docker-entrypoint-initdb.d
+      - ./docker/init/db:/docker-entrypoint-initdb.d
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
