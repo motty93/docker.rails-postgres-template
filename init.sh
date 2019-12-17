@@ -33,9 +33,6 @@ echo "db create & migrate"
 docker-compose run web rails db:create
 docker-compose run web rails db:migrate
 
-# echo "container all delete"
-# docker rm -f `docker ps -a -q`
-
 echo "fig up deamon"
 docker-compose up -d
 
