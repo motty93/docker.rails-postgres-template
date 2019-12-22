@@ -1,0 +1,19 @@
+/init/entrypoint.sh
+/.bundle
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/storage/*
+!/storage/.keep
+/node_modules
+/yarn-error.log
+/public/assets
+.byebug_history
+/config/master.key
+/postgresql-data
+/vendor/bundle
+.env
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key

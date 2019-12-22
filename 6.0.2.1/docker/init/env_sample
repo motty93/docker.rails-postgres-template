@@ -1,0 +1,6 @@
+POSTGRES_USER='docker_rails_6021'
+POSTGRES_PASSWORD='docker_rails_6021'
+POSTGRES_DB='docker_rails_6021_development'
+POSTGRES_PRODUCTION_DB='docker_rails_6021_production'
+POSTGRES_HOST='postgres'
+POSTGRES_PORT=5432

@@ -1,0 +1,38 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:12-alpine
+    volumes:
+      - postgresql-data:/var/lib/postgresql/data
+      - ./docker/init/db:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - POSTGRES_PRODUCTION_DB
+    ports:
+      - '5432'
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/rails/Dockerfile
+    working_dir: /myapp
+    command: ash -c "rm -f tmp/pids/server.pid && bundle exec rails s -b 0.0.0.0 -p 3000"
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/myapp
+      - /myapp/log
+      - /myapp/.git
+    environment:
+      - POSTGRES_HOST
+      - POSTGRES_PORT
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    depends_on:
+      - postgres
+    tty: true
+    stdin_open: true
+volumes:
+  postgresql-data:
+    driver: local
