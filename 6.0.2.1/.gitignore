@@ -11,9 +11,16 @@
 /public/assets
 .byebug_history
 /config/master.key
-/postgresql-data
 /vendor/bundle
 .env
+/docker/postgersql-data
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
