@@ -17,6 +17,6 @@ test:
 
 production:
   <<: *default
-  database: docker_rails_production
+  database: docker_rails_6021_production
   username: <%= ENV['POSTGRES_USER'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>

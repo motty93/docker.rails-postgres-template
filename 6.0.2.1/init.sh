@@ -1,16 +1,13 @@
 #!/bin/bash
 
 echo "###### rails new #######"
-docker-compose run web rails _6.0.2.1_ new . --database=postgresql \
-  --skip-git --skip-bundle --skip-turbolinks --skip-coffee --skip-test
+docker-compose run web rails _6.0.2.1_ new . -s --database=postgresql \
+  -G -B -T --skip-turbolinks
 
 if [ "$(uname)" == 'Linux' ]; then
   echo "###### Linux chown all file ######"
   sudo chown -R $USER:$USER *
 fi
-
-echo "###### force files checkout ######"
-git checkout README.md .gitignore
 
 echo "###### fig build ######"
 docker-compose build
