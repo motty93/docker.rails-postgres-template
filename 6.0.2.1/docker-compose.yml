@@ -1,10 +1,11 @@
 version: '3'
 services:
   postgres:
-    image: postgres:12-alpine
+    image: postgres:12.1-alpine
     volumes:
-      - postgresql-data:/var/lib/postgresql/data
+      - ./docker/postgresql-data:/var/lib/postgresql/data
       - ./docker/init/db:/docker-entrypoint-initdb.d
+    command: ash -c "chown -R $USER:$USER ./docker/postgresql-data/"
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -21,18 +22,20 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - .:/myapp
+      - .:/myapp:cached
       - /myapp/log
       - /myapp/.git
+      - /myapp/tmp
+      - /myapp/node_modules
     environment:
       - POSTGRES_HOST
       - POSTGRES_PORT
       - POSTGRES_USER
       - POSTGRES_PASSWORD
-    depends_on:
-      - postgres
     tty: true
     stdin_open: true
+    depends_on:
+      - postgres
 volumes:
   postgresql-data:
     driver: local
