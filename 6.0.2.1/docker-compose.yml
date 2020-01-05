@@ -3,9 +3,8 @@ services:
   postgres:
     image: postgres:12.1-alpine
     volumes:
-      - ./docker/postgresql-data:/var/lib/postgresql/data
+      - rails6-postgresql-data:/var/lib/postgresql/data
       - ./docker/init/db:/docker-entrypoint-initdb.d
-    command: ash -c "chown -R $USER:$USER ./docker/postgresql-data/"
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -37,5 +36,5 @@ services:
     depends_on:
       - postgres
 volumes:
-  postgresql-data:
+  rails6-postgresql-data:
     driver: local
