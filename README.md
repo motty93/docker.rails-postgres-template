@@ -11,3 +11,7 @@ $ git clone https://github.com/motty93/docker-rails-postgresql.git
 Please use rails repositories you want to use.
 
 thank you.
+
+### License
+
+MIT
