@@ -4,6 +4,5 @@
 docker
 docker-compose.yml
 Gemfile.lock
-yarn.lock
 init.sh
 README.md
