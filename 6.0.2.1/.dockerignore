@@ -7,3 +7,10 @@ Gemfile.lock
 yarn.lock
 init.sh
 README.md
+log
+tmp
+node_modules
+coverage/
+spec/tmp
+.bundle
+.rspec
