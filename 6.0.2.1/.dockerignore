@@ -1,0 +1,8 @@
+.dockerignore
+.git
+.gitignore
+docker
+docker-compose.yml
+Gemfile.lock
+yarn.lock
+init.sh
