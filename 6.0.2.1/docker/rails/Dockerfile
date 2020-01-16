@@ -15,7 +15,8 @@ RUN apk update && \
 WORKDIR /tmp
 COPY Gemfile* /tmp/
 
-RUN bundle config set clean 'true' && bundle install && \
+RUN bundle install && \
+    bundle clean --force && \
     apk del ${DELETE_PACKAGES} && \
     rm -rf /usr/local/bundle/cache/* /usr/local/share/.cache/* /var/cache/* /tmp/*
 
