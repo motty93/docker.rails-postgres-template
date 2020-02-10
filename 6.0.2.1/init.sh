@@ -2,7 +2,7 @@
 
 echo "###### rails new #######"
 docker-compose run --rm web rails _6.0.2.1_ new . -s --database=postgresql \
-  -G -B -T --skip-turbolinks
+  -G -T --skip-turbolinks
 
 if [ "$(uname)" == 'Linux' ]; then
   echo "###### Linux chown all file ######"

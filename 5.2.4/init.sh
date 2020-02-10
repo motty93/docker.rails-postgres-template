@@ -2,7 +2,7 @@
 
 echo "rails new"
 docker-compose run web rails _5.2.4_ new . --skip --database=postgresql \
-  --skip-git --skip-bundle --skip-turbolinks --skip-coffee --skip-test
+  --skip-git --skip-turbolinks --skip-coffee --skip-test
 
 if [ "$(uname)" == 'Linux' ]; then
   echo "Linux chown all file"
