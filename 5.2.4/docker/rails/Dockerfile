@@ -7,17 +7,17 @@ RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
     postgresql-client \
-    nodejs \
-    && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/* /tmp/* /var/tmp/*
-
-RUN gem install -v 5.2.4 rails \
-  && gem install bundler
+    nodejs && \
+    gem install rails -v '5.2.4' && \
+    gem install bundler
 
 WORKDIR /tmp
-
 COPY Gemfile* /tmp/
-RUN bundle install --clean \
-    && mkdir ${APP_ROOT}
+
+RUN bundle install && \
+    bundle clean --force && \
+    rm -rf /var/lib/apt/lists/* /var/cache/* /tmp/* /var/tmp/* \
+           /usr/local/bundle/cache/* /usr/local/share/.cache/*
 
 WORKDIR ${APP_ROOT}
 ADD . ${APP_ROOT}/
