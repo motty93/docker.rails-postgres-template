@@ -10,7 +10,7 @@ RUN apk update && \
     apk add --no-cache ${RUNTIME_PACKAGES} && \
     apk add --virtual build-packages --no-cache ${BUILD_PACKAGES} && \
     gem install rails -v '6.0.2.1' && \
-    gem install bundler
+    gem install bundler:2.1.4
 
 WORKDIR /tmp
 COPY Gemfile* /tmp/

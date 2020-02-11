@@ -26,6 +26,7 @@ services:
       - /myapp/.git
       - /myapp/tmp
       - /myapp/node_modules
+      - rails6-bundle:/bundle
     environment:
       - POSTGRES_HOST
       - POSTGRES_PORT
@@ -37,4 +38,6 @@ services:
       - postgres
 volumes:
   rails6-postgresql-data:
+    driver: local
+  rails6-bundle:
     driver: local

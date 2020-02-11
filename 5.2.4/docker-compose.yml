@@ -24,6 +24,7 @@ services:
       - .:/myapp
       - /myapp/log
       - /myapp/.git
+      - bundle:/bundle
     environment:
       - POSTGRES_HOST
       - POSTGRES_PORT
@@ -35,4 +36,6 @@ services:
     stdin_open: true
 volumes:
   postgresql-data:
+    driver: local
+  bundle:
     driver: local
