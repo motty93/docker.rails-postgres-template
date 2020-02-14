@@ -24,7 +24,7 @@ services:
       - .:/myapp
       - /myapp/log
       - /myapp/.git
-      - bundle:/bundle
+      - bundle:/usr/local/bundle
     environment:
       - POSTGRES_HOST
       - POSTGRES_PORT

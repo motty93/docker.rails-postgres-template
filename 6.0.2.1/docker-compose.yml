@@ -26,7 +26,7 @@ services:
       - /myapp/.git
       - /myapp/tmp
       - /myapp/node_modules
-      - rails6-bundle:/bundle
+      - rails6-bundle:/usr/local/bundle
     environment:
       - POSTGRES_HOST
       - POSTGRES_PORT
