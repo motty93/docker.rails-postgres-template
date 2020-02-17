@@ -18,7 +18,7 @@ COPY Gemfile* /tmp/
 RUN bundle install && \
     bundle clean --force && \
     apk del ${DELETE_PACKAGES} && \
-    rm -rf /usr/local/bundle/cache/* /usr/local/share/.cache/* /var/cache/* /tmp/*
+    rm -rf /usr/local/share/.cache/* /var/cache/* /tmp/*
 
 WORKDIR ${APP_ROOT}
 ADD . ${APP_ROOT}/
