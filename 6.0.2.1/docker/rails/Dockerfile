@@ -1,9 +1,9 @@
 FROM ruby:2.7.0-alpine3.11
 ENV LANG C.UTF-8
 ENV APP_ROOT /myapp
-ENV RUNTIME_PACKAGES="linux-headers build-base libxml2-dev libxslt-dev make gcc libc-dev nodejs yarn tzdata g++ postgresql-dev postgresql"
-ENV DELETE_PACKAGES="build-packages libxml2-dev curl-dev make gcc libc-dev g++"
-ENV BUILD_PACKAGES="build-base curl-dev"
+ENV RUNTIME_PACKAGES="linux-headers build-base libxml2-dev libxslt-dev make gcc libc-dev nodejs yarn tzdata g++ postgresql-dev postgresql" \
+    DELETE_PACKAGES="build-packages libxml2-dev curl-dev make gcc libc-dev g++" \
+    BUILD_PACKAGES="build-base curl-dev"
 
 RUN apk update && \
     apk upgrade && \
