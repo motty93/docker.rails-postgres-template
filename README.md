@@ -3,7 +3,7 @@
 ### Clone Repository
 
 ```
-$ git clone https://github.com/motty93/docker-rails-postgresql.git
+$ git clone https://github.com/motty93/docker.rails-postgresql-template.git
 ```
 
 ### Check Repositories.
