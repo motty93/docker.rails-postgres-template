@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  postgres:
+    image: postgres:14.2-alpine
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD
+    volumes:
+      - ./docker/init/db:/docker-entrypoint-initdb.d
+      - data:/var/lib/postgresql/data
+    ports:
+      - '5555:5432'
+
+  redis:
+    image: redis:alpine
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - '6543:6379'
+    volumes:
+      - ./docker/redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - cache:/var/lib/redis/data
+
+  web:
+    image: hotwire_web
+    command: sh -c 'rm -f tmp/pids/server.pid && bundle exec foreman start -f Procfile'
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/myapp:cached
+      - /myapp/log
+      - /myapp/tmp
+      - /myapp/.git
+      - ./vendor/bundle:/myapp/vendor/bundle
+      - bundle:/usr/local/bundle
+    tty: true
+    stdin_open: true
+    restart: always
+    depends_on:
+      - postgres
+      - redis
+  # TODO: Procfileじゃなくcssコンテナでプロセス分離したい
+  # css:
+  #   image: hotwire_web
+  #   command: bundle exec rails tailwindcss:watch
+  #   restart: always
+  #   depends_on:
+  #     - web
+
+volumes:
+  bundle:
+    driver: local
+  data:
+    driver: local
+  cache:
+    driver: local

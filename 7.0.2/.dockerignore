@@ -1,0 +1,11 @@
+.git
+.gitignore
+docker-compose.yml
+init.sh
+README.md
+log
+tmp
+coverage/
+spec/tmp
+.bundle
+.rspec
